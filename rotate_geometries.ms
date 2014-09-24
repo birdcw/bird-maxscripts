@@ -1,7 +1,7 @@
 /*
 
 DESCRIPTION:
-Will rotate all geometry objects in max file(s) (6 degree increments, z axis by defualt),
+Will rotate all geometry objects in max file(s) (6 degree increments, z axis by default),
 Saves a 2D png image at each rotation (i.e. images at 0,6,12,18,...,354 degrees). 
 Images are taken using any pre-existing camera within the max file.
 
@@ -15,7 +15,7 @@ This script does not save any changes to max files.
 ROTATING OBJECTS:
 Only objects of type "Geometry" will be rotated
 Rotation angle can be modified as needed (A),
-Rotation angle must divide evenly into 360 desgrees
+Rotation angle must divide evenly into 360 degrees
 Z axis of rotation.
 
 CAMERAS:
@@ -73,8 +73,8 @@ if inputFiles.Equals inputFiles.OK then
 		select (for obj in Geometry collect obj)
 		group Selection name:"theGroup"
 		
-		--camera must already be centered and its target should be the desired pivot point.
-		--resized if neccessary to keep everyting onscreen when rotating.
+		--camera must already be centred and its target should be the desired pivot point.
+		--resized if necessary to keep everything on-screen when rotating.
 		$theGroup.pivot = cameras[camIndex].target.pivot
 		scale $theGroup [sizeObj,sizeObj,sizeObj]
 		
