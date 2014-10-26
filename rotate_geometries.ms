@@ -69,7 +69,7 @@ fn checkFileName f  = (
 fn groupGeometries groupName = (
 
 	for obj in helpers where isGroupHead obj do (
-		ungroup obj --any pre-existing groups would be excluded from the pending geometry loop.
+		ungroup obj --pre-existing groups would be excluded from the geometry for loop.
 	)
 		
 	select (for obj in Geometry collect obj)
