@@ -56,6 +56,16 @@ fn showSave = (
 	outputDir
 )
 
+fn checkFileName f  = (
+	
+	while doesFileExist f do (
+		f = getFilenamePath f + getFilenameFile f + " - Copy" + getFilenameType f
+	)
+	
+	f
+	
+)
+
 fn groupGeometries groupName = (
 
 	for obj in helpers where isGroupHead obj do (
@@ -67,16 +77,6 @@ fn groupGeometries groupName = (
 	select (for obj in Geometry collect obj)
 	group Selection name: groupName
 		
-)
-
-fn checkFileName f  = (
-	
-	while doesFileExist f do (
-		f = getFilenamePath f + getFilenameFile f + " - Copy" + getFilenameType f
-	)
-	
-	f
-	
 )
 
 theFileNames = showOpen()
