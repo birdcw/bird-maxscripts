@@ -72,8 +72,6 @@ fn groupGeometries groupName = (
 		ungroup obj --any pre-existing groups would be excluded from the pending geometry loop.
 	)
 		
-	--geometries are grouped together prior to rotation
-	-- Assuming all objects to be rotated are geometries.
 	select (for obj in Geometry collect obj)
 	group Selection name: groupName
 		
@@ -87,6 +85,7 @@ for f in theFilenames do (
 	
 	loadMAXFile f quiet:true -- will not save max files
 	
+	-- Assuming all objects to be rotated are geometries.
 	groupGeometries "theGroup"
 	
 	--camera must already be centred and its target should be the desired pivot point.
